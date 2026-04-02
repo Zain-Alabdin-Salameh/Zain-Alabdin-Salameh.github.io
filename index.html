@@ -1,571 +1,542 @@
-<html lang="en"><head>
-    <title>Zain Alabdin Salameh</title>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zain Alabdin Salameh — Portfolio</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#0f1620;
+      --panel2:#0c121a;
+      --text:#d7e0ea;
+      --muted:#8aa0b5;
+      --dim:#607387;
+      --line:#1d2a3a;
+      --accent:#7ee787;
+      --accent2:#58a6ff;
+      --warn:#ffa657;
+      --danger:#ff7b72;
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --radius: 14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="icon" type="image/x-icon" href="/media/images/zain_alabdin_salameh.original.png">
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(88,166,255,.14), transparent 55%),
+        radial-gradient(900px 500px at 85% 10%, rgba(126,231,135,.12), transparent 55%),
+        radial-gradient(900px 500px at 50% 95%, rgba(255,166,87,.08), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      font-family:var(--sans);
+      line-height:1.45;
+    }
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
 
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <!-- Global core theme CSS -->
-    <link rel="stylesheet" type="text/css" href="/static/css/general_style.css">
-    <!-- Devicon CSS - set of icons representing programming languages, designing, and development tools -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:28px 18px 42px;
+    }
 
-    
-<link rel="stylesheet" href="/static/css/home_page.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/font-awesome.min.css">
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
 
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .glyph{
+      width:38px;
+      height:38px;
+      border-radius:10px;
+      background:
+        linear-gradient(180deg, rgba(126,231,135,.16), rgba(88,166,255,.10));
+      border:1px solid rgba(126,231,135,.25);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .glyph:before{
+      content:"";
+      position:absolute;
+      inset:-20px;
+      background:repeating-linear-gradient(135deg, rgba(126,231,135,.20) 0 10px, rgba(88,166,255,.18) 10px 20px);
+      opacity:.25;
+      transform:rotate(8deg);
+    }
+
+    .brand h1{
+      margin:0;
+      font-size:15px;
+      letter-spacing:.2px;
+      font-family:var(--mono);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .brand .sub{
+      font-size:12px;
+      color:var(--muted);
+      font-family:var(--mono);
+      margin-top:2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(15,22,32,.6);
+      color:var(--text);
+    }
+
+    .pill strong{ color:var(--accent); font-weight:700; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:16px;
+      margin-top:16px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(15,22,32,.78), rgba(12,18,26,.78));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .cardHeader{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+      background:rgba(0,0,0,.12);
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .dots{ display:flex; gap:7px; }
+    .dot{ width:10px; height:10px; border-radius:99px; opacity:.9; }
+    .dot.red{ background:var(--danger); }
+    .dot.yellow{ background:var(--warn); }
+    .dot.green{ background:var(--accent); }
+
+    .cardBody{ padding:14px; }
+
+    .terminal{
+      font-family:var(--mono);
+      font-size:13px;
+      color:var(--text);
+    }
+
+    .terminal .prompt{ color:var(--dim); }
+    .terminal .cmd{ color:var(--accent2); }
+    .terminal .ok{ color:var(--accent); }
+    .terminal .muted{ color:var(--muted); }
+
+    .status{
+      display:grid;
+      grid-template-columns: 58px 1fr;
+      gap:0;
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      background:rgba(0,0,0,.10);
+      margin-top:12px;
+    }
+
+    .gutter{
+      background:rgba(12,18,26,.8);
+      border-right:1px solid var(--line);
+      color:var(--dim);
+      font-family:var(--mono);
+      font-size:12px;
+      padding:10px 10px;
+      user-select:none;
+    }
+
+    .gutter div{ height:18px; display:flex; align-items:center; justify-content:flex-end; }
+
+    .tree{
+      padding:10px 12px;
+      font-family:var(--mono);
+      font-size:13px;
+    }
+
+    .tree .line{ display:flex; gap:10px; align-items:flex-start; min-height:18px; }
+    .tree .path{ white-space:nowrap; }
+    .tree .desc{ color:var(--muted); }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(15,22,32,.55);
+      color:var(--muted);
+      font-family:var(--mono);
+      font-size:11px;
+    }
+
+    .badge .b{ width:7px; height:7px; border-radius:99px; background:var(--accent); box-shadow:0 0 0 3px rgba(126,231,135,.12); }
+
+    .sectionTitle{
+      margin:0 0 10px;
+      font-family:var(--mono);
+      font-size:13px;
+      letter-spacing:.2px;
+      color:var(--text);
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .item{
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.10);
+      border-radius:12px;
+      padding:12px;
+    }
+
+    .itemHead{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:baseline;
+      gap:10px;
+      justify-content:space-between;
+      margin-bottom:6px;
+    }
+
+    .itemHead strong{ font-family:var(--mono); font-size:13px; }
+    .itemHead span{ font-family:var(--mono); font-size:12px; color:var(--muted); }
+
+    .item ul{ margin:8px 0 0 18px; padding:0; color:var(--text); }
+    .item li{ margin:4px 0; }
+
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+
+    @media (max-width: 720px){
+      .twoCol{ grid-template-columns: 1fr; }
+    }
+
+    .footer{
+      margin-top:16px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(15,22,32,.55);
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .kbd{
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.15);
+      padding:2px 6px;
+      border-radius:7px;
+      color:var(--text);
+    }
+
+    .srOnly{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+  </style>
 </head>
-
-<body id="page-top" class="template-homepage">
-    
-
-<!-- Navbar -->
-<nav id="mainNav" class="navbar navbar-expand-lg text-uppercase fixed-top navbar-shrink">
-    <div class="container">
-        <a class="navbar-brand" href="#page-top">Zain Alabdin
-            <span>Salameh</span></a>
-        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <b>Menu
-                <i class="fas fa-bars"></i>
-            </b>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded active" href="#experience">Experience</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Projects</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#education">Education</a>
-                </li>
-               
-            </ul>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="glyph" aria-hidden="true"></div>
+        <div style="min-width:0">
+          <h1>Zain Alabdin Salameh</h1>
+          <div class="sub">Flutter + Backend • 6+ years • shipping market-ready apps</div>
         </div>
-    </div>
-</nav>
+      </div>
+      <nav class="links" aria-label="Links">
+        <a class="pill" href="mailto:zain-alabdin-salameh@outlook.com"><strong>mail</strong>: zain-alabdin-salameh@outlook.com</a>
+        <a class="pill" href="tel:+963935395867"><strong>tel</strong>: +963 935395867</a>
+        <a class="pill" href="https://github.com/Zain-Alabdin-Salameh" target="_blank" rel="noreferrer"><strong>git</strong>: github.com/Zain-Alabdin-Salameh</a>
+        <a class="pill" href="https://linkedin.com/in/zain-alabdin-salameh-294317210" target="_blank" rel="noreferrer"><strong>in</strong>: linkedin</a>
+        <a class="pill" href="https://zain-alabdin-slameh.medium.com" target="_blank" rel="noreferrer"><strong>md</strong>: medium</a>
+      </nav>
+    </header>
 
-<!-- Pagehead-->
-<header class="pagehead bg-primary text-center">
-    <div class="container d-flex align-items-center flex-column">
-        <!-- Pagehead Avatar Image-->
-        <img alt="zain" class="pagehead-avatar" height="1201" src="/media/images/zain_alabdin_salameh.original.png" width="1201">
-        <!-- Pagehead Heading-->
-        <h1 class="pagehead-heading mt-5">Zain Alabdin Salameh</h1>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fa-solid fa-laptop-code"></i></div>
-            <div class="divider-custom-line"></div>
+    <main class="grid">
+      <section class="card" aria-labelledby="about-title">
+        <div class="cardHeader">
+          <div style="display:flex; align-items:center; gap:10px; min-width:0;">
+            <div class="dots" aria-hidden="true">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">~/portfolio  —  branch: <span class="ok">main</span></div>
+          </div>
+          <div class="badge" title="Working tree">
+            <span class="b" aria-hidden="true"></span>
+            clean-ish
+          </div>
         </div>
-        <p class="pagehead-subheading font-weight-light mb-0">Software Developer</p>
-    </div>
-</header>
+        <div class="cardBody">
+          <h2 id="about-title" class="srOnly">About</h2>
 
-<!-- About -->
-<section id="about" class="page-section">
-    <div class="container">
-        <!-- About Heading-->
-        <h2 class="page-section-heading text-center text-uppercase">About</h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fa-solid fa-user-secret"></i></div>
-            <div class="divider-custom-line"></div>
+          <div class="terminal" aria-label="Terminal intro">
+            <div><span class="prompt">$</span> <span class="cmd">git status</span></div>
+            <div class="muted">On branch main</div>
+            <div class="muted">Your branch is up to date with 'origin/main'.</div>
+            <div class="muted">Changes not staged for commit:</div>
+            <div class="muted">  (use "git add &lt;file&gt;..." to update what will be committed)</div>
+            <div class="muted">  (use "git restore &lt;file&gt;..." to discard changes in working directory)</div>
+            <div style="margin-top:8px"><span class="ok">modified:</span> <span class="cmd">README.md</span> <span class="muted">— upgrading ideas into production</span></div>
+          </div>
+
+          <div class="status" aria-label="Working tree sections">
+            <div class="gutter" aria-hidden="true">
+              <div>01</div><div>02</div><div>03</div><div>04</div><div>05</div><div>06</div><div>07</div><div>08</div><div>09</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
+            </div>
+            <div class="tree">
+              <div class="line"><span class="path">./</span> <span class="desc muted">working tree</span></div>
+              <div class="line"><span class="path">├─</span><span class="path"><span class="cmd">about/</span></span> <span class="desc">Enthusiastic, results-driven software developer (6+ years)</span></div>
+              <div class="line"><span class="path">│  ├─</span><span class="path"><span class="cmd">focus.txt</span></span> <span class="desc">Flutter, Dart, backend services</span></div>
+              <div class="line"><span class="path">│  └─</span><span class="path"><span class="cmd">mission.txt</span></span> <span class="desc">Transform innovative ideas into user-friendly solutions</span></div>
+              <div class="line"><span class="path">├─</span><span class="path"><span class="cmd">skills/</span></span> <span class="desc">Mobile + backend + cloud</span></div>
+              <div class="line"><span class="path">├─</span><span class="path"><span class="cmd">experience/</span></span> <span class="desc">Remote roles across KSA, UAE, Syria, Jordan, Turkey</span></div>
+              <div class="line"><span class="path">├─</span><span class="path"><span class="cmd">projects/</span></span> <span class="desc">Apps, services, and AI health tracking systems</span></div>
+              <div class="line"><span class="path">└─</span><span class="path"><span class="cmd">education/</span></span> <span class="desc">Computer & Electronic Systems Engineering (2018–2024)</span></div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="twoCol" aria-label="Quick facts">
+            <div class="item">
+              <div class="itemHead">
+                <strong>Signature stack</strong>
+                <span>mobile + backend</span>
+              </div>
+              <div class="terminal">
+                <div><span class="prompt">$</span> <span class="cmd">flutter --version</span> <span class="muted"># main tool</span></div>
+                <div><span class="prompt">$</span> <span class="cmd">node -v</span> <span class="muted"># services</span></div>
+                <div><span class="prompt">$</span> <span class="cmd">docker compose up</span> <span class="muted"># deploy</span></div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="itemHead">
+                <strong>Languages</strong>
+                <span>human</span>
+              </div>
+              <div class="terminal">
+                <div><span class="ok">Arabic</span> <span class="muted">native</span></div>
+                <div><span class="ok">English</span> <span class="muted">professional working proficiency (B1)</span></div>
+                <div><span class="ok">German</span> <span class="muted">A1</span></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- About Content-->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-lg-6 mx-auto about-text">
-                    <p data-block-key="zu7b8">Enthusiastic and results-driven software developer with over 4 years of experience in designing and implementing high-quality mobile applications and back-end services. Proficient in multiple programming languages and frameworks with a strong focus on Flutter and backend technologies. Passionate about transforming innovative ideas into user-friendly, market-ready solutions.</p>
-                
-                    <p>you can reach me at <a href="mailto:zain-alabdin-salameh@outlook.com">zain-alabdin-salameh@outlook.com</a></p>
-                </div>
+      </section>
+
+      <aside class="card" aria-labelledby="right-title">
+        <div class="cardHeader">
+          <div style="display:flex; align-items:center; gap:10px; min-width:0;">
+            <div class="dots" aria-hidden="true">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
             </div>
+            <div style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">git log --oneline</div>
+          </div>
+          <div class="badge"><span class="b" aria-hidden="true"></span> timeline</div>
         </div>
-    </div>
-</section>
+        <div class="cardBody">
+          <h2 id="right-title" class="srOnly">Timeline</h2>
 
-<!-- Experience -->
-<section id="experience" class="page-section bg-primary">
-    <!-- Experience Heading-->
-    <h2 class="page-section-heading text-center text-uppercase">Experience</h2>
-    <!-- Icon Divider-->
-    <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fa-solid fa-gears"></i></div>
-        <div class="divider-custom-line"></div>
-    </div>
-
-    <!-- Experience Content-->
-    
-    <div class="container">
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Mobile Application Developer</h3>
-                <div class="subheading mb-3"><a href="None" target="_blank" class="company-name">
-                        NERVA GROUP</a></div>
-                <ul class="fa-ul">
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Developed high-quality mobile applications for a custom media and communication company.</li>
-                    
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Implemented seamless integrations with backend services, improving app performance and user engagement.</li>
-                    
-                    
-                    
-
-                </ul>
+          <div class="list" aria-label="Experience">
+            <div class="item">
+              <div class="itemHead">
+                <strong><span class="ok">* </span>AWA Cyber Technology</strong>
+                <span>Fullstack Developer • Oman • Aug 2025 — Present</span>
+              </div>
+              <ul>
+                <li>Built and maintained backend services using NestJS with a clean, modular architecture aligned to microservices principles.</li>
+                <li>Designed scalable APIs and service boundaries (auth, core domain, shared modules), focusing on testability, maintainability, and clear contracts.</li>
+                <li>Developed Flutter features and integrations with backend services, ensuring stable networking, robust state handling, and production-ready UX.</li>
+                <li>Implemented Docker-based local/dev environments and deployment workflows to support reliable releases.</li>
+              </ul>
             </div>
-            
-            <div class="flex-shrink-0">
-                <span>February 2024 - August 2024</span>
-                <div class="subheading mb-3">Dubai UAE</div>
+
+            <div class="item">
+              <div class="itemHead">
+                <strong><span class="ok">* </span>NERVO</strong>
+                <span>Mobile Developer • Saudi Arabia (Remote) • May 2025 — Present</span>
+              </div>
+              <div class="muted" style="font-family:var(--mono); font-size:12px;">
+                Saudi-based digital solutions provider (software + marketing + digital engagement).
+              </div>
             </div>
-            
+
+            <div class="item">
+              <div class="itemHead">
+                <strong><span class="ok">* </span>NERVA GROUP</strong>
+                <span>Mobile Developer • Dubai, UAE (Remote) • Feb 2024 — Oct 2024</span>
+              </div>
+              <ul>
+                <li>Developed high-quality mobile applications for a custom media and communication company.</li>
+                <li>Implemented seamless integrations with backend services, improving performance and user engagement.</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="itemHead">
+                <strong><span class="ok">* </span>LWYN</strong>
+                <span>Back-End Developer • Tartous, Syria (Remote) • Aug 2023 — Jun 2024</span>
+              </div>
+              <ul>
+                <li>Enhanced and maintained backend server features using NestJS and GraphQL.</li>
+                <li>Managed Linux-based server environments and deployment pipelines using Docker.</li>
+                <li>Provided technical support to ensure robust system performance.</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="itemHead">
+                <strong><span class="ok">* </span>Up2MediaAgency</strong>
+                <span>Mobile Developer • Amman, Jordan (Remote) • Feb 2023 — Oct 2023</span>
+              </div>
+              <ul>
+                <li>Integrated backend services with mobile applications, leading to a 15% boost in user experience.</li>
+                <li>Represented the company at development conferences, advocating best practices.</li>
+                <li>Advised team on customized client solutions, resulting in a 30% improvement in client satisfaction.</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="itemHead">
+                <strong><span class="ok">* </span>Psych Friends</strong>
+                <span>Software Developer • Istanbul, Turkey (Remote) • Jun 2023 — Oct 2023</span>
+              </div>
+              <ul>
+                <li>Developed an AI-driven mobile application to support individuals with mental health challenges.</li>
+                <li>Designed and trained machine learning models and integrated them into the app for better user insights.</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <div class="itemHead">
+                <strong><span class="ok">* </span>Question Mark Technology Team</strong>
+                <span>Team Leader • Tartus, Syria • Jan 2022 — Jan 2023</span>
+              </div>
+              <ul>
+                <li>Led the development team, hiring developers and managing projects to meet client expectations.</li>
+                <li>Communicated with clients to translate business requirements into actionable technical solutions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:14px" class="item" aria-label="Skills">
+            <div class="itemHead">
+              <strong>skills/</strong>
+              <span>tracked + shipped</span>
+            </div>
+            <div class="terminal">
+              <div><span class="ok">Mobile</span> <span class="muted">Flutter, Dart</span></div>
+              <div><span class="ok">Backend</span> <span class="muted">Node.js, Express.js, TypeScript, NestJS, Python, Django, Flask</span></div>
+              <div><span class="ok">Databases</span> <span class="muted">MongoDB, PostgreSQL, MySQL</span></div>
+              <div><span class="ok">Cloud</span> <span class="muted">AWS (EC2, S3), Firebase, GCP</span></div>
+              <div><span class="ok">Deploy</span> <span class="muted">Docker, Linux server management</span></div>
+              <div><span class="ok">Soft</span> <span class="muted">Leadership, teamwork, communication, client collaboration</span></div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px" class="twoCol" aria-label="Education and Awards">
+            <div class="item">
+              <div class="itemHead">
+                <strong>education</strong>
+                <span>2018 — 2024</span>
+              </div>
+              <div class="muted" style="font-family:var(--mono); font-size:12px;">
+                Tartous University — Computer and Electronic Systems Engineering (Syria, Tartous)
+              </div>
+            </div>
+            <div class="item">
+              <div class="itemHead">
+                <strong>awards</strong>
+                <span>2019</span>
+              </div>
+              <div class="muted" style="font-family:var(--mono); font-size:12px;">
+                ACM Syrian Programming Contest — ranked 3rd regionally (local contest)
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    
-    <div class="container">
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Back-end Developer</h3>
-                <div class="subheading mb-3"><a href="None" target="_blank" class="company-name">
-                        LWYN</a></div>
-                <ul class="fa-ul">
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Enhanced and maintained backend server features using Nest.js and GraphQL.</li>
-                    
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Managed Linux-based server environments and deployment pipelines using Docker.</li>
-                    
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Provided technical support to ensure robust system performance.</li>
-                    
-                    
+      </aside>
+    </main>
 
-                </ul>
-            </div>
-            
-            <div class="flex-shrink-0">
-                <span>August 2023 - June 2024</span>
-                <div class="subheading mb-3">Tartus Syria</div>
-            </div>
-            
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Mobile Application Developer</h3>
-                <div class="subheading mb-3"><a href="None" target="_blank" class="company-name">
-                        Up2MediaAgency</a></div>
-                <ul class="fa-ul">
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Integrated backend services with mobile applications, leading to a 15% boost in user experience.</li>
-                    
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Represented the company at development conferences, advocating best practices.</li>
-                    
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Advised team on customized client solutions, resulting in a 30% improvement in client satisfaction.</li>
-                    
-                    
-
-                </ul>
-            </div>
-            
-            <div class="flex-shrink-0">
-                <span>February 2023 - October 2023</span>
-                <div class="subheading mb-3">Jordan Amman</div>
-            </div>
-            
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Software Developer</h3>
-                <div class="subheading mb-3"><a href="None" target="_blank" class="company-name">
-                        Psych Friends</a></div>
-                <ul class="fa-ul">
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Developed an AI-driven mobile application aimed at supporting individuals with mental health challenges.</li>
-                    
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Designed and trained machine learning models, optimizing their integration with the app for better user insights.</li>
-                    
-                    
-                    
-
-                </ul>
-            </div>
-            
-            <div class="flex-shrink-0">
-                <span>June 2023 - October 2023</span>
-                <div class="subheading mb-3">Turkey, Istanbul</div>
-            </div>
-            
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="flex-grow-1">
-                <h3 class="mb-0">Team Leader</h3>
-                <div class="subheading mb-3"><a href="None" target="_blank" class="company-name">
-                        Question Mark T echnology T eam</a></div>
-                <ul class="fa-ul">
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Led the development team, hiring developers and managing projects to meet client expectations.</li>
-                    
-                    
-                    <li><span class="fa-li"><i class="fa-solid fa-gears"></i></span>Communicated with clients to translate business requirements into actionable technical solutions.</li>
-                    
-                    
-                    
-
-                </ul>
-            </div>
-            
-            <div class="flex-shrink-0">
-                <span>January 2022 - January 2023</span>
-                <div class="subheading mb-3">Tartus Syria</div>
-            </div>
-            
-        </div>
-    </div>
-    
-</section>
-
-<!-- Projects -->
-<section id="portfolio" class="page-section portfolio">
-    <div class="container">
-        <!-- Projects Heading-->
-        <h2 class="page-section-heading text-center text-uppercase">Projects</h2>
-
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fa-solid fa-keyboard"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-
-        <div class="text-center mb-5 text-secondary">
-            These are some of my projects that have a visual component, either a CLI or a presentation
-        </div>
-
-        <!-- Projects Content -->
-        <div class="row justify-content-center">
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="portfolio-project">
-                    <figure class="effect-bubba" style="width: 100%;">
-                        <a href="https://apps.apple.com/us/app/%D9%85%D8%AA%D8%AC%D8%B1-%D8%B9%D9%82%D8%A7%D8%B1%D8%A7%D8%AA/id6683309778" target="_blank">
-                            <img alt="Instagram 19" class="card-img-top project-img" height="600" src="/media/images/Instagram_19.width-600.png" width="600">
-                            <div>View demo</div>
-                        </a>
-                    </figure>
-                    <div class="card-body mt-1">
-                        <h5 class="card-title text-center">Matjar Eqarat
-                            <a href="https://apps.apple.com/us/app/%D9%85%D8%AA%D8%AC%D8%B1-%D8%B9%D9%82%D8%A7%D8%B1%D8%A7%D8%AA/id6683309778" class="github" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </h5>
-                        <p class="project-finished-date text-center text-secondary">
-                            <i></i>
-                        </p>
-                        <div class="card-text project-description mb-4">
-                            <p data-block-key="f15lt">A real estate store application for the sale, rent and investment system that connects buyers, investors, property owners, sellers, tenants and agents in the governorates to facilitate the search for properties and provide them in smooth and simple ways that suit the needs of citizens in the region</p>
-                        </div>
-
-                        <div class="project-technologies">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="portfolio-project">
-                    <figure class="effect-bubba" style="width: 100%;">
-                        <a href="https://play.google.com/store/apps/details?id=nerva.org.uaearchery" target="_blank">
-                            <img alt="uaearch" class="card-img-top project-img" height="600" src="/media/images/uaearch.width-600.png" width="600">
-                            <div>View demo</div>
-                        </a>
-                    </figure>
-                    <div class="card-body mt-1">
-                        <h5 class="card-title text-center">UAE Archery Federation
-                            <a href="https://play.google.com/store/apps/details?id=nerva.org.uaearchery" class="github" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </h5>
-                        <p class="project-finished-date text-center text-secondary">
-                            <i></i>
-                        </p>
-                        <div class="card-text project-description mb-4">
-                            <p data-block-key="x1mol">A sports federation concerned with sponsoring and supporting the sport of bow and arrow. It seeks to provide a sustainable environment and enhance it for professionalism and efficiency, and contributes to spreading the sport among various segments of society for participation and competition, by building partnerships, consolidating and developing local and international relations, and providing administrative and technical services with high standards and standards, within a framework of distinct and innovative competitive values &ZeroWidthSpace;&ZeroWidthSpace;and goals</p>
-                        </div>
-
-                        <div class="project-technologies">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="portfolio-project">
-                    <figure class="effect-bubba" style="width: 100%;">
-                        <a href="https://play.google.com/store/apps/details?id=nerva.org.journalists_association" target="_blank">
-                            <img alt="UAEJA" class="card-img-top project-img" height="600" src="/media/images/UAEJA.width-600.png" width="600">
-                            <div>View demo</div>
-                        </a>
-                    </figure>
-                    <div class="card-body mt-1">
-                        <h5 class="card-title text-center">UAE Journalists Association
-                            <a href="https://play.google.com/store/apps/details?id=nerva.org.journalists_association" class="github" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </h5>
-                        <p class="project-finished-date text-center text-secondary">
-                            <i></i>
-                        </p>
-                        <div class="card-text project-description mb-4">
-                            <p data-block-key="x1mol">An application dedicated to journalists in the United Arab Emirates that contains special benefits for them, including subscription to a solidarity fund for those who have membership in the association, the possibility of requesting loans, and participation in events and halls.</p>
-                        </div>
-
-                        <div class="project-technologies">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="portfolio-project">
-                    <figure class="effect-bubba" style="width: 100%;">
-                        <a href="https://play.google.com/store/apps/details?id=lwyn.user" target="_blank">
-                            <img alt="lwyn" class="card-img-top project-img" height="600" src="/media/images/lwyn.width-600.png" width="600">
-                            <div>View demo</div>
-                        </a>
-                    </figure>
-                    <div class="card-body mt-1">
-                        <h5 class="card-title text-center">LWYN
-                            <a href="https://play.google.com/store/apps/details?id=lwyn.user" class="github" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </h5>
-                        <p class="project-finished-date text-center text-secondary">
-                            <i></i>
-                        </p>
-                        <div class="card-text project-description mb-4">
-                            <p data-block-key="bce5u">It features an easy-to-use user interface, advanced location tracking technology, and fast and efficient service. Book your ride with ease, track driver movements in real time, and provide ride ratings.</p>
-                        </div>
-
-                        <div class="project-technologies">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="portfolio-project">
-                    <figure class="effect-bubba" style="width: 100%;">
-                        <a href="https://play.google.com/store/apps/details?id=nerva.org.dqaiq" target="_blank">
-                            <img alt="dqaiq" class="card-img-top project-img" height="600" src="/media/images/dqaiq.width-600.png" width="600">
-                            <div>View demo</div>
-                        </a>
-                    </figure>
-                    <div class="card-body mt-1">
-                        <h5 class="card-title text-center">Dqaiq Food Delivery
-                            <a href="https://play.google.com/store/apps/details?id=nerva.org.dqaiq" class="github" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        </h5>
-                        <p class="project-finished-date text-center text-secondary">
-                            <i></i>
-                        </p>
-                        <div class="card-text project-description mb-4">
-                            <p data-block-key="kbjem">An online store that sells fast-prepared food, all kinds of juices, and hot drinks. This application allows the user to order food from anywhere within Libyan cities. He can set virtual addresses and choose one of them when ordering food. He can monitor the status of the order and order from any of the restaurants linked to the application.</p>
-                        </div>
-
-                        <div class="project-technologies">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-<!-- Skills -->
-<section id="skills" class="page-section bg-primary">
-    <!-- Skills Heading-->
-    <h2 class="page-section-heading text-center text-uppercase">Skills</h2>
-    <!-- Icon Divider-->
-    <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon"><i class="fa-solid fa-qrcode"></i></div>
-        <div class="divider-custom-line"></div>
-    </div>
-
-    <!-- Skills Icons-->
-    <div class="container">
-        <div class="row">
-            
-            <div class="col col-sm-3">
-                <i class="python">
-                    <span>PYTHON</span>
-                </i>
-            </div>
-            
-            <div class="col col-sm-3">
-                <i class="flutter">
-                    <span>FLUTTER</span>
-                </i>
-            </div>
-            
-            <div class="col col-sm-3">
-                <i class="node">
-                    <span>NODE.JS</span>
-                </i>
-            </div>
-            
-            <div class="col col-sm-3">
-                <i class="linux">
-                    <span>LINUX</span>
-                </i>
-            </div>
-            
-            <div class="col col-sm-3">
-                <i class="express.js">
-                    <span>EXPRESS.JS</span>
-                </i>
-            </div>
-            
-            <div class="col col-sm-3">
-                <i class="typescript">
-                    <span>TYPESCRIPT</span>
-                </i>
-            </div>
-            
-            <div class="col col-sm-3">
-                <i class="django">
-                    <span>DJANGO</span>
-                </i>
-            </div>
-            
-            <div class="col col-sm-3">
-                <i class="mysql">
-                    <span>MYSQL</span>
-                </i>
-            </div>
-            
-            <div class="col col-sm-3">
-                <i class="mongodb">
-                    <span>MONGODB</span>
-                </i>
-            </div>
-            
-            <div class="col col-sm-3">
-                <i class="firebase">
-                    <span>FIREBASE</span>
-                </i>
-            </div>
-            
-
-            
-        </div>
-    </div>
-</section>
-
-<!-- Education -->
-<section id="education" class="page-section">
-    <div class="container">
-        <!-- Education Heading-->
-        <h2 class="page-section-heading text-center text-uppercase">Education</h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fa-solid fa-bars"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <!-- Education Content-->
-        
-        <div class="container">
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Computer and Electronic Systems Engineering, Bachelour</h3>
-                    <div class="subheading mb-3"><a href="None" target="_blank" class="company-name">
-                            Tartus University</a></div>
-                </div>
-                
-                <div class="flex-shrink-0"><span>September 2018 - September 2024</span>
-                    <div class="subheading mb-3"></div>
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</section>
-
-
-
- 
-
-
-
-
-
-    <!-- Footer-->
-    <footer class="footer text-center">
-        <div class="container">
-            <div class="text-center">
-                <h4 class="text-uppercase mb-4">Follow me</h4>
-
-                <!-- Footer Social Icons-->
-                
-                <a class="btn btn-outline-light btn-social mx-1" href="http://linkedin.com/in/zain-alabdin-salameh-294317210" target="_blank"> <i class="fab fa-fw fa-linkedin-in"></i> </a>
-                
-
-                
-                <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/Zain-Alabdin-Salameh/" target="_blank"> <i class="fab fa-fw fa-github"></i> </a>
-                
-
-                
-
-                
-                <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/zain.alabdin.salameh/" target="_blank"> <i class="fab fa-fw fa-instagram"></i> </a>
-                
-            </div>
-        </div>
+    <footer class="footer" aria-label="Footer">
+      <div>
+        <span class="muted">Tip:</span> open this page like a repo — scroll the log, read the tree.
+      </div>
+      <div>
+        <span class="kbd">git</span> <span class="muted">is a mindset</span>
+      </div>
     </footer>
-
-    <!-- Copyright -->
-    <div class="copyright py-4 text-center text-white">
-        <div class="container">
-            <p data-block-key="6brwk">Zain Alabdin Salameh 2024</p>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom core JS -->
-    <script type="text/javascript" src="/static/js/home_page.js"></script>
-
-
-
-
-</body></html>
+  </div>
+</body>
+</html>
