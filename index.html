@@ -217,6 +217,113 @@
     .terminal .ok{ color:var(--accent); }
     .terminal .muted{ color:var(--muted); }
 
+    .termWin{
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.14);
+      border-radius:12px;
+      overflow:hidden;
+    }
+
+    .termBar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px 12px;
+      border-bottom:1px solid var(--line);
+      background:rgba(0,0,0,.12);
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .termBody{ padding:12px; }
+
+    .formGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    @media (max-width: 720px){
+      .formGrid{ grid-template-columns: 1fr; }
+    }
+
+    .field{ display:flex; flex-direction:column; gap:6px; }
+
+    label{
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    input, textarea{
+      width:100%;
+      font-family:var(--mono);
+      font-size:13px;
+      color:var(--text);
+      background:rgba(15,22,32,.65);
+      border:1px solid var(--line);
+      border-radius:10px;
+      padding:10px 10px;
+      outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    textarea{ min-height:120px; resize:vertical; }
+
+    input:focus, textarea:focus{
+      border-color:rgba(88,166,255,.45);
+      box-shadow:0 0 0 4px rgba(88,166,255,.10);
+      background:rgba(15,22,32,.85);
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .btn{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:9px 12px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background:rgba(15,22,32,.75);
+      color:var(--text);
+      cursor:pointer;
+      transition:transform .15s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(126,231,135,.35);
+      box-shadow:0 0 0 4px rgba(126,231,135,.08);
+      background:rgba(15,22,32,.90);
+    }
+
+    .btn.primary{
+      border-color:rgba(126,231,135,.35);
+      background:linear-gradient(180deg, rgba(126,231,135,.12), rgba(15,22,32,.82));
+    }
+
+    .termOut{
+      margin-top:10px;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:rgba(0,0,0,.18);
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--muted);
+      white-space:pre-wrap;
+      min-height:68px;
+    }
+
     .cursor{
       display:inline-block;
       width:8px;
@@ -652,6 +759,71 @@
           </div>
         </div>
       </aside>
+
+      <section class="card" aria-labelledby="contact-title">
+        <div class="cardHeader">
+          <div style="display:flex; align-items:center; gap:10px; min-width:0;">
+            <div class="dots" aria-hidden="true">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div id="contact-title" style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">~/contact  —  interactive terminal</div>
+          </div>
+          <div class="badge"><span class="b" aria-hidden="true"></span> input</div>
+        </div>
+        <div class="cardBody">
+          <div class="termWin" role="region" aria-label="Contact terminal">
+            <div class="termBar">
+              <div style="display:flex; align-items:center; gap:10px; min-width:0;">
+                <div class="dots" aria-hidden="true">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div style="min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">zain@terminal:~$ send-message</div>
+              </div>
+              <div class="muted">mailto</div>
+            </div>
+            <div class="termBody">
+              <div class="terminal" aria-label="Contact instructions">
+                <div><span class="prompt">$</span> <span class="cmd">whoami</span></div>
+                <div class="muted">visitor</div>
+                <div style="margin-top:8px"><span class="prompt">$</span> <span class="cmd">./contact --to</span> <span class="ok">zain-alabdin-salameh@outlook.com</span></div>
+              </div>
+
+              <form id="contactForm" novalidate>
+                <div class="formGrid">
+                  <div class="field">
+                    <label for="cName">name</label>
+                    <input id="cName" name="name" autocomplete="name" required />
+                  </div>
+                  <div class="field">
+                    <label for="cEmail">email</label>
+                    <input id="cEmail" name="email" type="email" autocomplete="email" required />
+                  </div>
+                  <div class="field" style="grid-column: 1 / -1;">
+                    <label for="cSubject">subject</label>
+                    <input id="cSubject" name="subject" required />
+                  </div>
+                  <div class="field" style="grid-column: 1 / -1;">
+                    <label for="cMessage">message</label>
+                    <textarea id="cMessage" name="message" required></textarea>
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <button class="btn primary" type="submit">send</button>
+                  <button class="btn" type="reset">clear</button>
+                  <span class="muted" style="font-family:var(--mono); font-size:12px;">opens your email client</span>
+                </div>
+
+                <div id="termOut" class="termOut" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer" aria-label="Footer">
@@ -663,5 +835,74 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    (function(){
+      var form = document.getElementById('contactForm');
+      var out = document.getElementById('termOut');
+      if(!form || !out) return;
+
+      function line(text, tone){
+        var prefix = '$ ';
+        var safe = String(text || '');
+        var html = '<span class="prompt">$</span> ' + safe.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        if(tone === 'ok') html = '<span class="ok">ok</span>  ' + html;
+        if(tone === 'err') html = '<span style="color:var(--danger)">err</span> ' + html;
+        out.innerHTML += (out.innerHTML ? '\n' : '') + html;
+      }
+
+      function setDefault(){
+        out.innerHTML = '';
+        line('contact --help', 'ok');
+        out.innerHTML += "\n<span class=\"muted\">Fill the form and hit send.</span>";
+      }
+
+      function isValidEmail(v){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || '').trim());
+      }
+
+      setDefault();
+
+      form.addEventListener('reset', function(){
+        window.setTimeout(setDefault, 0);
+      });
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        out.innerHTML = '';
+
+        var name = document.getElementById('cName').value.trim();
+        var email = document.getElementById('cEmail').value.trim();
+        var subject = document.getElementById('cSubject').value.trim();
+        var message = document.getElementById('cMessage').value.trim();
+
+        line('validate --fields name email subject message');
+
+        if(!name || !email || !subject || !message){
+          line('missing required fields', 'err');
+          out.innerHTML += "\n<span class=\"muted\">All fields are required.</span>";
+          return;
+        }
+
+        if(!isValidEmail(email)){
+          line('invalid email: ' + email, 'err');
+          out.innerHTML += "\n<span class=\"muted\">Please enter a valid email.</span>";
+          return;
+        }
+
+        line('compose --transport mailto', 'ok');
+
+        var to = 'zain-alabdin-salameh@outlook.com';
+        var fullSubject = subject + ' — from ' + name;
+        var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+        var href = 'mailto:' + encodeURIComponent(to) +
+          '?subject=' + encodeURIComponent(fullSubject) +
+          '&body=' + encodeURIComponent(body);
+
+        line('open mail client', 'ok');
+        window.location.href = href;
+      });
+    })();
+  </script>
 </body>
 </html>
